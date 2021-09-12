@@ -1,68 +1,31 @@
-const Aoijs = require("aoi.js")
+module.exports = ({
 
-const bot = new Aoijs.Bot({
+    name: "server", 
 
-token: "NzExODQ5MzE0NTE0ODk0ODU4.XsI_Vg.caJcR22QpaTDoMAEofQcTI3ecGU", //Discord Bot Token
+    code: `$title[Сервер] 
 
-prefix: "m/" //Customizable
+$description[Пользователей: $membersCount 
 
-})
+В сети: $membersCount[$guildID;online] 
 
-bot.onMessage() //Allows to run Commands
+Не в сети: $membersCount[$guildID;offline]
 
-bot.command({
+Не беспокоить: $membersCount[$guildID;dnd] 
 
-name: "ping", //Trigger name (command name)
+Не активен: $membersCount[$guildID;idle] 
 
-code: `$ping Пинг!` //Code
+Каналов: $channelCount 
 
-})
+Текстовых: $channelCount[text] 
 
-bot.variables({
-    
-    prefix: "m/", 
-    
-    errorcol: "RED",
-    
-    color: "GREEN" 
-    
-   }) 
+Голосовых: $channelCount[voice] 
 
+Эмодзи: $emojiCount
 
+В бане: $banCount
 
-bot.command({
-    name: "eval", 
-    code: `$eval[$message] $onlyForIDs[718085164030361600;Только для разработчика] `
+Описание сервера: $serverDescription]
 
-   }) 
+$color[RANDOM] $footer[By Deadly Software© | все права защищены] `
 
-bot.loadCommands(`./commands/`)
-
-bot.command({
-    name: "load", 
-    code: `$updateCommands $addCmdReactions[✅] $onlyForIDs[718085164030361600;] `
-    
-   }) 
-
-bot.variables({
-
-    
-
-color: "RANDOM",
-
-    
-
-money: "0", 
-
-    
-
-currency: "<a:ALMAZ:801854772633665556>",
-    
-    box: "0",
-    
-    bbox: "0"
-
-    
-
-   }) 
-
+}) 
